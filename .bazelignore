@@ -1,0 +1,5 @@
+**/node_modules
+bazel-bin
+bazel-oss-hoshi
+bazel-out
+bazel-testlogs

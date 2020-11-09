@@ -1,0 +1,34 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+load("@io_bazel_rules_docker//go:image.bzl", "go_image")
+load("@io_bazel_rules_docker//container:container.bzl", "container_push")
+
+go_library(
+    name = "example",
+    srcs = ["example.go"],
+    importpath = "github.com/go-zaru/oss-hoshi/packages/nioh/cmd/example",
+    visibility = ["//visibility:public"],
+)
+
+go_binary(
+    name = "oss-hoshi-example",
+    embed = [":example"],
+    visibility = ["//visibility:public"],
+)
+
+go_image(
+    name = "example_image",
+    binary=":oss-hoshi-example",
+    # srcs = ["example.go"],
+    # base = "@go_image_base//image",
+    # importpath = "github.com/go-zaru/oss-hoshi/packages/nioh/cmd/example",
+    visibility = ["//visibility:public"],
+)
+
+container_push(
+    name="example_push", 
+    format = "Docker",
+    image=":example_image", 
+    registry="localhost:5000", 
+    repository="test", 
+    tag="v0.1.2",
+)

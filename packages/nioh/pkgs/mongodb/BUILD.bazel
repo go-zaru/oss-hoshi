@@ -1,0 +1,13 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "mongodb",
+    srcs = ["mongodb.go"],
+    importpath = "github.com/go-zaru/oss-hoshi/packages/nioh/pkgs/mongodb",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//pkgs/config",
+        "@org_mongodb_go_mongo_driver//mongo",
+        "@org_mongodb_go_mongo_driver//mongo/options",
+    ],
+)

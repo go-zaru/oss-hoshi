@@ -21,3 +21,8 @@
 **/npm-debug.log*
 **/yarn-debug.log*
 **/yarn-error.log*
+
+**/bazel-bin
+**/bazel-oss-hoshi
+**/bazel-out
+**/bazel-testlogs

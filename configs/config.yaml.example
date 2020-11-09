@@ -1,0 +1,9 @@
+server:
+  port: ":8080"
+
+service:
+  basepath: "/service-root"
+
+mongodb:
+  url: "mongodb://localhost:27017/mydatabase"
+
